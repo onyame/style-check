@@ -155,21 +155,21 @@ def emit_html_file_heading(f)
 end
 
 def emit_html_warning(file, linenum, column, problem, matchedlines, phra_hash, detected)
-  if($options[:web_output]) then
+  if($options[:web_output] && detected != nil) then
     id = Digest::SHA1.hexdigest(problem.to_s+file.to_s+linenum.to_s)
     puts "<table id=\"#{id}\" class=\""+phra_hash[detected].split(/\s+/)[0]+"\">"
-	puts "<tr><th>File</th><td>"+file.to_s+" (line: "+linenum.to_s
+	  puts "<tr><th>File</th><td>"+file.to_s+" (line: "+linenum.to_s
     puts ", column: "+column.to_s if column
     puts ")<div class=\"x\"><button onclick=\"myFunction('#{id}');\">X</button></div></td></tr>"
-	puts "<tr><th>Original</th><td>%s</td></tr>" % [ matchedlines ]
-	puts "<tr><th>Problem</th><td>%s</td></tr>" % [ problem ]
-	if (column && phra_hash[detected]) then
+	  puts "<tr><th>Original</th><td>%s</td></tr>" % [ matchedlines ]
+	  puts "<tr><th>Problem</th><td>%s</td></tr>" % [ problem ]
+	  if (column && phra_hash[detected]) then
       solution=phra_hash[detected].split("(matched")
-	  puts "<tr><th>Solution</th><td>%s</td></tr>" % [ solution[0] ]
-	  if (solution[1] != nil ) then
+	    puts "<tr><th>Solution</th><td>%s</td></tr>" % [ solution[0] ]
+	    if (solution[1] != nil ) then
       	puts "<tr><th>Trigger</th><td>%s</td></tr>" % [ solution[1][0..-2] ]
       end
-	end
+	  end
     puts "</table>"
   end
 end
@@ -295,7 +295,7 @@ Input_files.each { |f|
         #end
         if(checkstring =~ /[a-z0-9][^\.\:\!\?\n}]\n\n/) then
           if($options[:web_output]) then
-            emit_html_warning(f, j, nil, "apparent bad paragraph break", checkstring.gsub(/\n/, '\n'), phra_hash, nil)
+            emit_html_warning(f, i, nil, "apparent bad paragraph break", checkstring.gsub(/\n/, '\n'), PctCensored_phrases, nil)
       	  else
             puts "\n################################################################################\n%s:l%d: apparent bad paragraph break: %s" % [ 
                    f, i+1, checkstring.gsub(/\n/, '\n') ];
