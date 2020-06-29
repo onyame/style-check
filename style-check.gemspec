@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'style-check'
-  s.version     = '0.15'
+  s.version     = '0.15.1'
   s.date        = '2014-12-06'
   s.summary     = "Style checker for LaTeX"
   s.description = "style-check.rb searches latex-formatted text in search of forbidden phrases and
