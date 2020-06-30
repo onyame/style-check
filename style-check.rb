@@ -145,12 +145,12 @@ PathList.map { |rulefilename|
 
 def emit_html_file_header 
   if($options[:web_output]) then
-	puts "<html>\n<head>\n<title>style_checker.rb</title>\n</head>\n<style>\nform{width:100%; text-align:center;font-size:10pt;}\ninput{vertical-align:bottom;margin-left:30px;}\ntable { width:95%; border-collapse: collapse; font-size:10pt; margin:10px 2.5%}\n.spelling th, #mySpelling{background-color:rgb(223, 180, 168);}\n.capitalize th, #myCapitalize{background-color:rgb(247, 226, 172);}\n.syntax th, #mySyntax{background-color:rgb(172, 194, 230);}\n.phrase th, #myPhrase{background-color:rgb(203, 208, 172);}\n#myUndefined{margin-left:30px;background-color: rgb(177, 177,176);}\ntable, th, td { border: 1px solid black; padding: 5px;}\ntr{ width:100%}\ndiv{display:inline;}th{ text-align:left; width: 10%; background-color: rgb(177, 177,176);}\ntd{ width:90%;}\n#myTotal{width:100%;margin-left:15px;font-size:10pt;}\ntable button{float:right; font-size:8pt; border: 1px solid black;width:15px;text-align:center;}\np{ font-size: 10pt; text-align: center;}\n</style>\n<body><form id=\"aform\"><input type=\"checkbox\" id=\"inSpelling\" name=\"type\" value=\"spelling\" checked=\"checked\"><div id=\"mySpelling\">Spelling</div><input type=\"checkbox\" id=\"inCapitalize\" name=\"type\" value=\"capitalize\" checked=\"checked\"><div id=\"myCapitalize\">Capitalize</div><input type=\"checkbox\" id=\"inSyntax\" name=\"type\" value=\"syntax\" checked=\"checked\"><div id=\"mySyntax\">Syntax</div><input type=\"checkbox\" id=\"inPhrase\" name=\"type\" value=\"phrase\" checked=\"checked\"><div id=\"myPhrase\">Phrase</div><div id=\"myUndefined\">Undefined</div><br /><br /><div id=\"myTotal\"></div></form>"
+	puts "<html>\n<head>\n<title>style_checker.rb</title>\n</head>\n<style>\nbody{font-family: FrutigerLTW02-45Light,\"Helvetica Neue\",Helvetica,Roboto,Arial,sans-serif;}\nform{width:100%; text-align:center;font-size:10pt;}\ninput{vertical-align:bottom;margin-left:30px;}\ntable { width:95%; border-collapse: collapse; font-size:10pt; margin:10px 2.5%}\n.spelling th, #mySpelling{background-color:rgb(223, 180, 168);padding: 0.2em;}\n.capitalize th, #myCapitalize{background-color:rgb(247, 226, 172);padding: 0.2em;}\n.syntax th, #mySyntax{background-color:rgb(172, 194, 230);padding: 0.2em;}\n.phrase th, #myPhrase{background-color:rgb(203, 208, 172);padding: 0.2em;}\n#myUndefined{margin-left:30px;background-color: rgb(177, 177,176);padding: 0.2em;}\ntable, th, td { border: 1px solid black; padding: 5px;}\ntr{ width:100%}\ndiv{display:inline;}th{ text-align:left; width: 10%; background-color: rgb(177, 177,176);}\ntd{ width:90%;}\n#myTotal{width:100%;margin-left:15px;font-size:10pt;}\ntable button{float:right; font-size:8pt; border: 1px solid black;width:15px;text-align:center;}\np{ font-size: 10pt; text-align: center;}\n</style>\n<body><form id=\"aform\"><input type=\"checkbox\" id=\"inSpelling\" name=\"type\" value=\"spelling\" checked=\"checked\"><div id=\"mySpelling\">Spelling</div><input type=\"checkbox\" id=\"inCapitalize\" name=\"type\" value=\"capitalize\" checked=\"checked\"><div id=\"myCapitalize\">Capitalize</div><input type=\"checkbox\" id=\"inSyntax\" name=\"type\" value=\"syntax\" checked=\"checked\"><div id=\"mySyntax\">Syntax</div><input type=\"checkbox\" id=\"inPhrase\" name=\"type\" value=\"phrase\" checked=\"checked\"><div id=\"myPhrase\">Phrase</div><div id=\"myUndefined\">Undefined</div><br /><br /><div id=\"myTotal\"></div></form>"
   end
 end
 def emit_html_file_heading(f)
   if($options[:web_output]) then
-    puts "<h1>%s</h1>" % [ f ]
+    puts "<h1 style='font-family:courier, \"courier new\", monospace;'>%s</h1>" % [ f ]
   end
 end
 
@@ -158,7 +158,7 @@ def emit_html_warning(file, linenum, column, problem, matchedlines, phra_hash, d
   if($options[:web_output] && detected != nil) then
     id = Digest::SHA1.hexdigest(problem.to_s+file.to_s+linenum.to_s)
     puts "<table id=\"#{id}\" class=\""+phra_hash[detected].split(/\s+/)[0]+"\">"
-	  puts "<tr><th>File</th><td>"+file.to_s+" (line: "+linenum.to_s
+	  puts "<tr><th>File</th><td><div style='font-family:courier, \"courier new\", monospace;'>"+file.to_s+"</div> (line: "+linenum.to_s
     puts ", column: "+column.to_s if column
     puts ")<div class=\"x\"><button onclick=\"myFunction('#{id}');\">X</button></div></td></tr>"
 	  puts "<tr><th>Original</th><td>%s</td></tr>" % [ matchedlines ]
