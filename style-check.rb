@@ -193,7 +193,7 @@ PreCensored_phrases[
 PreCensored_phrases[ 
   Regexp.new(/(table|figure|section)~\\ref/) ] = "syntax Table, Figure, and Section refs should be capitalized"
 PreCensored_phrases[ 
-  Regexp.new(/\\url\{(?!http|ftp|rtsp|mailto)/) ] = "syntax ~\\url{} should start with http:// (or ftp or rtsp or maybe mailto)."
+  Regexp.new(/\\url\{(?!http|https|ftp|rtsp|mailto)/) ] = "syntax ~\\url{} should start with http:// (or https or ftp or rtsp or maybe mailto)."
 
 PctCensored_phrases[ 
   Regexp.new(/[0-9]%/) ] = "syntax a percent following a number is rarely an intended comment."
