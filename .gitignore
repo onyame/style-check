@@ -90,3 +90,4 @@ build-iPhoneSimulator/
 
 # IDEs
 *.code-workspace
+test/style-check.html
