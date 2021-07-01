@@ -1,0 +1,33 @@
+\begin{minted}[frame=lines]{cypher}
+    MATCH 
+      (d1:Agent)-[:wasAttributedTo]-(:Entity)-
+      [:specializationOf]-(file:Entity {`prov:type`: 'file'})-
+      [:specializationOf]-(d2:Agent)
+    WHERE 
+      d1.user_name <> d2.user_name AND ID(d1) < ID(d2)
+    CALL {
+        WITH file
+        MATCH 
+          (f:Entity)-[:wasGeneratedBy]->
+          (commit:Activity {`prov:type`:'commit'})
+        RETURN DISTINCT commit
+        }
+    RETURN commit.`prov2neo:identifier` AS commit
+\end{minted}
+
+\begin{lstlisting}
+    MATCH 
+    (d1:Agent)-[:wasAttributedTo]-(:Entity)-
+    [:specializationOf]-(file:Entity {`prov:type`: 'file'})-
+    [:specializationOf]-(d2:Agent)
+  WHERE 
+    d1.user_name <> d2.user_name AND ID(d1) < ID(d2)
+  CALL {
+      WITH file
+      MATCH 
+        (f:Entity)-[:wasGeneratedBy]->
+        (commit:Activity {`prov:type`:'commit'})
+      RETURN DISTINCT commit
+      }
+  RETURN commit.`prov2neo:identifier` AS commit
+\end{lstlisting}
