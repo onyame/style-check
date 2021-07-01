@@ -312,7 +312,7 @@ Input_files.each { |f|
 }
 if($options[:web_output]) then
 web_trailer = <<EOF
-<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
+<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
 <script type=\"text/javascript\">
 $('#aform').on
 (
