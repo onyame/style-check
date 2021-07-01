@@ -275,6 +275,11 @@ Input_files.each { |f|
     elsif( ln =~ /\\end\{(equation|math|eqnarray)\*?\}/ ) then
       in_multiline_equation=false
     end
+    if( ln =~ /\\begin\{(minted|lstlisting)\*?\}/ ) then
+      in_multiline_equation=true
+    elsif( ln =~ /\\end\{(minted|lstlisting)\*?\}/ ) then
+      in_multiline_equation=false
+    end
     if(in_multiline_comment == 0 && ! in_multiline_verbatim && ! in_multiline_equation)  then
       do_cns( ln, f, i+1, PreCensored_phrases )
       ln.gsub!(De_command, '~')
