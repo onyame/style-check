@@ -6,3 +6,27 @@ IslandVis   % capitalize IslandViz
 Osgi        % capitalize OSGi 
 OSGI        % capitalize OSGi 
 python      % capitalize Python
+Gitlab      % capitalize GitLab
+Github      % capitalize GitHub
+Tensorflow  % capitalize Tensorflow
+ios         % capitalize iOS
+macos       % capitalize macOS
+iphone      % capitalize iPhone
+ipad        % capitalize iPad
+javascript  % capitalize JavaScript
+Javascript  % capitalize JavaScript
+networkx    % capitalize NetworkX 
+Networkx    % capitalize NetworkX 
+pytorch     % capitalize PyTorch 
+Pytorch     % capitalize PyTorch 
+numpy       % capitalize NumPy 
+Numpy       % capitalize NumPy
+Pandas      % capitalize pandas 
+prov        % capitalize PROV 
+Prov        % capitalize PROV 
+neo4j       % capitalize Neo4j 
+Neo4J       % capitalize Neo4j
+cypher      % capitalize CYPHER 
+Cypher      % capitalize CYPHER 
+
+
