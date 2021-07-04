@@ -28,3 +28,4 @@ in section \\ref % phrase should have ~ between section and ref
 section~\\ref % capitalize capitalize section when saying Section 6.
 \\(sub)?section\{Intro\} % syntax spell it out.
 [0-9 ]+x[0-9 ]+               % syntax use $\times$ between numbers.
+\\label\{(?!sec:|tab:|fig:).*\}           % syntax label should start with qualifier (sec:, tab:, fig:)
