@@ -26,7 +26,7 @@ prov        % capitalize PROV
 Prov        % capitalize PROV 
 neo4j       % capitalize Neo4j 
 Neo4J       % capitalize Neo4j
-cypher      % capitalize CYPHER 
-Cypher      % capitalize CYPHER 
+cypher      % capitalize Cypher 
+CYPHER      % capitalize Cypher 
 
 
